@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Minecraft Server Website</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<h1 th:text="${message}"></h1>
+<h2>Online Players:</h2>
+<ul>
+    <li th:each="player : ${players}">
+        <p th:text="${player}"></p>
+    </li>
+</ul>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

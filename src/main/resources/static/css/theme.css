@@ -1,0 +1,257 @@
+root {
+  --v-anchor-base: #008a5a;
+  --v-primary-base: #008a5a;
+  --v-primary-lighten5: #a9ffde;
+  --v-primary-lighten4: #8cfac2;
+  --v-primary-lighten3: #6fdda7;
+  --v-primary-lighten2: #52c08c;
+  --v-primary-lighten1: #32a573;
+  --v-primary-darken1: #007042;
+  --v-primary-darken2: #00572c;
+  --v-primary-darken3: #003e17;
+  --v-primary-darken4: #002900;
+  --v-secondary-base: #0d3326;
+  --v-secondary-lighten5: #87af9e;
+  --v-secondary-lighten4: #6d9584;
+  --v-secondary-lighten3: #547b6b;
+  --v-secondary-lighten2: #3c6253;
+  --v-secondary-lighten1: #254a3c;
+  --v-secondary-darken1: #001e11;
+  --v-secondary-darken2: #000700;
+  --v-secondary-darken3: #000000;
+  --v-secondary-darken4: #000000;
+  --v-accent-base: #68bb9e;
+  --v-accent-lighten5: #f5ffff;
+  --v-accent-lighten4: #d8ffff;
+  --v-accent-lighten3: #bbfff1;
+  --v-accent-lighten2: #9ff4d5;
+  --v-accent-lighten1: #83d7b9;
+  --v-accent-darken1: #4da084;
+  --v-accent-darken2: #30856b;
+  --v-accent-darken3: #0d6c52;
+  --v-accent-darken4: #00533b;
+  --v-error-base: #b71c1c;
+  --v-error-lighten5: #ffaf95;
+  --v-error-lighten4: #ff937b;
+  --v-error-lighten3: #ff7762;
+  --v-error-lighten2: #f75b4a;
+  --v-error-lighten1: #d73e32;
+  --v-error-darken1: #980005;
+  --v-error-darken2: #7a0000;
+  --v-error-darken3: #5e0000;
+  --v-error-darken4: #480000;
+  --v-info-base: #2196f3;
+  --v-info-lighten5: #d4ffff;
+  --v-info-lighten4: #b5ffff;
+  --v-info-lighten3: #95e8ff;
+  --v-info-lighten2: #75ccff;
+  --v-info-lighten1: #51b0ff;
+  --v-info-darken1: #007cd6;
+  --v-info-darken2: #0064ba;
+  --v-info-darken3: #004d9f;
+  --v-info-darken4: #003784;
+  --v-success-base: #4caf50;
+  --v-success-lighten5: #dcffd6;
+  --v-success-lighten4: #beffba;
+  --v-success-lighten3: #a2ff9e;
+  --v-success-lighten2: #85e783;
+  --v-success-lighten1: #69cb69;
+  --v-success-darken1: #2d9437;
+  --v-success-darken2: #00791e;
+  --v-success-darken3: #006000;
+  --v-success-darken4: #004700;
+  --v-warning-base: #fb8c00;
+  --v-warning-lighten5: #ffff9e;
+  --v-warning-lighten4: #fffb82;
+  --v-warning-lighten3: #ffdf67;
+  --v-warning-lighten2: #ffc24b;
+  --v-warning-lighten1: #ffa72d;
+  --v-warning-darken1: #db7200;
+  --v-warning-darken2: #bb5900;
+  --v-warning-darken3: #9d4000;
+  --v-warning-darken4: #802700;
+  --v-title-base: #d8fff2;
+  --v-title-lighten5: #ffffff;
+  --v-title-lighten4: #ffffff;
+  --v-title-lighten3: #ffffff;
+  --v-title-lighten2: #ffffff;
+  --v-title-lighten1: #f5ffff;
+  --v-title-darken1: #bce2d6;
+  --v-title-darken2: #a1c6ba;
+  --v-title-darken3: #86ab9f;
+  --v-title-darken4: #6d9085;
+  --v-regular-base: #000000;
+  --v-regular-lighten5: #777777;
+  --v-regular-lighten4: #5e5e5e;
+  --v-regular-lighten3: #474747;
+  --v-regular-lighten2: #303030;
+  --v-regular-lighten1: #1b1b1b;
+  --v-regular-darken1: #000000;
+  --v-regular-darken2: #000000;
+  --v-regular-darken3: #000000;
+  --v-regular-darken4: #000000;
+  --v-background-base: #ffffff;
+  --v-background-lighten5: #ffffff;
+  --v-background-lighten4: #ffffff;
+  --v-background-lighten3: #ffffff;
+  --v-background-lighten2: #ffffff;
+  --v-background-lighten1: #ffffff;
+  --v-background-darken1: #e2e2e2;
+  --v-background-darken2: #c6c6c6;
+  --v-background-darken3: #ababab;
+  --v-background-darken4: #919191;
+}
+
+@font-face {
+    font-family: 'Stolzl-Display';
+    src: 
+        url('../fonts/Stolzl-Display.2e6fafa0.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Material Icons';
+    src: url('../fonts/MaterialIcons-Regular.2543e46e.woff2') format('woff2');
+}
+
+
+
+.material-icons {
+    font-family: 'Material Icons', sans-serif;
+}
+
+/* 
+body {
+    font-family: 'Stolzl Display', sans-serif;
+}
+ */
+
+p {
+  font-size: 16px;
+}
+
+h4 {
+  padding-bottom: 2%;
+}
+
+.navbar-fixed {
+   z-index: 999; 
+}
+
+.row {
+  margin: 0;
+}
+
+.brand-logo {
+  padding-left: 20px !important;
+}
+
+.header {
+  color: white;
+}
+
+.main {
+  padding: 3% 0px 3% 0px;
+  margin:  0px 8% 0px 8%;
+}
+
+/* Info */
+.info {
+  background-color: rgb(250, 250, 250);
+}
+
+.info img {
+  max-width: 25%;
+}
+
+.about {
+/*   background-color: rgb(244, 244, 244); */
+  background-color: rgb(63, 108, 82);
+  color: white;
+/* 	background-color: rgb(33, 119, 98); */
+}
+
+.support-button {
+    background-color: rgb(63, 108, 82);
+}
+
+
+.about img {
+  max-width: 70%;
+  margin-bottom: -10%;
+}
+
+/* Staff */
+.staff {
+  background-color: rgb(250, 250, 250);
+}
+
+.no-padding {
+  padding: 0;
+}
+
+
+.staff i {
+  font-size: 25px;
+  margin: 0px .5% 0px .5%;
+  color: #212121;
+}
+
+.staff i:hover {
+  color: rgb(70, 70, 70);
+}
+
+.vip {
+  background-color: rgb(244, 244, 244)
+}
+
+.screenshots {
+  background-color: rgb(250, 250, 250);
+}
+
+/* Responsiveness */
+@media screen and (max-width: 992px) {
+  .main {
+    padding: 10% 0 10% 0;
+  }
+
+  .about, .page-footer {
+    text-align: center;
+  }
+
+  .about img {
+    padding-bottom: 8%;
+  }
+
+  .screenshots .row .col {
+    padding: 2px 2px 2px 2px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .contact .card-panel {
+    margin: 3% 25% 3% 25%;
+  }
+
+  .screenshots .row:last-child {
+    padding-top: 1.33%;
+  }
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a, li, span, div {
+     font-family: 'Stolzl-Display', Inter, sans-serif !important;
+}
+
+
+/* Transparent Nav Stuff */
+nav {
+    background-color: transparent;
+    -webkit-transition: background-color 0.5s ease-in-out;
+    -moz-transition: background-color 0.5s ease-in-out;
+    -ms-transition: background-color 0.5s ease-in-out;
+    -o-transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
+}
+
