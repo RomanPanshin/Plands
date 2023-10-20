@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Olympia 2.0, created with love by Sid Engel. -->
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+
+
+
+    <!-- Roboto Font + Icons -->
+    <!--   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <!--   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet"> -->
+
+
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- AOS -->
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+
+    <!-- MC Player Counter -->
+    <script src="https://cdn.rawgit.com/leonardosnt/mc-player-counter/1.1.0/dist/mc-player-counter.min.js"></script>
+
+    <!-- Theme's Stylesheet -->
+    <link rel="stylesheet" th:href="@{/css/theme.css}" />
+
+    <!-- Theme JS -->
+    <script th:src="@{/js/smoothscroll.js}"></script>
+    <script th:src="@{/js/clipboardHandler.js}"></script>
+    <script  th:src="@{/js/nav.js}"></script>
+
+    <!-- Site Title -->
+    <title>Pioneer Lands</title>
+
+    <!-- Meta Info -->
+    <meta charset="UTF-8">
+    <meta name="author" content="PLands Team">
+    <meta name="description" content="Сервер, где нельзя оказаться случайно">
+    <meta name="keywords" content="Minecraft, Server, PLands, Multiplayer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<!-- Nav -->
+<div class="navbar-fixed">
+    <nav class="z-depth-0 grey darken-4"> <!-- Applied grey darken-4 class here -->
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">Plands</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#staff">Staff</a></li>
+                <li><a href="/#vip">Patron</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#staff">Facts</a></li>
+                <li><a href="/#vip">Patron</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!-- / Nav -->
+
+
+<div class="main">
+
+    <div class="info">
+        <h2>Добавьте свой никнейм в Whitelist</h2>
+        <p>Введите ваш никнейм в Minecraft и проверочный код, чтобы добавить себя в Whitelist на нашем сервере.</p>
+
+        <form th:action="@{/whitelist/add}" method="post">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="nickname" type="text" name="playerName" required>
+                    <label for="nickname">Никнейм в Minecraft</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="code" type="text" name="code" required>
+                    <label for="code">Проверочный код</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light support-button" type="submit">Начать путешествие!</button>
+        </form>
+        <div th:if="${status == 'success'}">
+            <h3>Поздравляем!</h3>
+            <p>Вы успешно добавлены в белый список сервера Pioneer Lands.</p>
+            <ul>
+                <li><b>Шаг 1:</b> Убедитесь, что у вас установлена версия Minecraft 1.20.1.</li>
+                <li><b>Шаг 2:</b> Запустите игру под тем никнеймом, который вы указали.</li>
+                <li><b>Шаг 3:</b> В меню "Многопользовательская игра" выберите "Добавить сервер" и введите адрес <button id="copyButton" class="btn waves-effect waves-light support-button" data-clipboard-text="plands.ru">
+                    <b>plands.ru</b>
+                </button>
+                </li>
+                <li><b>Шаг 4:</b> Подключитесь к серверу и начните своё приключение в мире Pioneer Lands!</li>
+            </ul>
+        </div>
+        <div th:if="${status == 'failure'}">
+            <p>Ошибка: Ваш проверочный код недействителен или уже был использован.</p>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!-- Add footer if needed -->
+
+<!-- Footer -->
+<footer class="page-footer grey darken-4 z-depth-4">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Другое</h5>
+                <p class="grey-text text-lighten-4">Переходите в наши соцсети и играйте вместе!</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Наши соцсети</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="https://discord.gg/3vwKchsz">Discord</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://t.me/+1Zx_IhHKHrFlODdi">Telegram</a></li>
+<!--                    <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright grey darken-4 z-depth-4">
+        <div class="container">
+            <!-- Please give credit, where credit is due. Leave this here... -->
+            Created with care, by Plands Team
+            <a class="grey-text text-lighten-4 right" href="#!">©Pioneer Lands 2023</a>
+        </div>
+    </div>
+</footer>
+<!-- /Footer -->
+
+<!-- Existing scripts and links -->
+
+</body>
+</html>

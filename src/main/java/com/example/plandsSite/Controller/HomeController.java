@@ -11,4 +11,11 @@ public class HomeController {
     public String home(Model model) {
         return "index";
     }
+
+    @GetMapping("/audit")
+    public String audit(Model model) {
+        // You can add attributes to the model if needed
+        // model.addAttribute("attributeName", value);
+        return "audit";  // This assumes you have an "audit.html" template in the templates folder
+    }
 }
