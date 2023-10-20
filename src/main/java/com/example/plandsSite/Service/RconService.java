@@ -12,7 +12,7 @@ public class RconService {
 
     public void addWhitelist(String playerName) {
         try (RconClient client = RconClient.open("plands.ru", 25575, rconPassword)) {
-            client.sendCommand(String.format("whitelist add %s", playerName));
+            client.sendCommand(String.format("easywhitelist add %s", playerName));
         }
     }
 }
