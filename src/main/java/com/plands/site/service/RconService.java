@@ -1,4 +1,4 @@
-package com.example.plandsSite.Service;
+package com.plands.site.service;
 
 import com.github.t9t.minecraftrconclient.RconClient;
 import org.springframework.beans.factory.annotation.Value;

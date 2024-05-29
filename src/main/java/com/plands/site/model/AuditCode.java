@@ -1,4 +1,4 @@
-package com.example.plandsSite.Model;
+package com.plands.site.model;
 
 import jakarta.persistence.*;
 

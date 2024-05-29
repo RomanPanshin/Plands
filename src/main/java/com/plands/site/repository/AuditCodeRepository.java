@@ -1,6 +1,6 @@
-package com.example.plandsSite.Repository;
+package com.plands.site.repository;
 
-import com.example.plandsSite.Model.AuditCode;
+import com.plands.site.model.AuditCode;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

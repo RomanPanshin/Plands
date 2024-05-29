@@ -1,10 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>Content List</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <!-- Theme's Stylesheet -->
+    <link rel="stylesheet" th:href="@{/css/theme.css}" />
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 </head>
 <body>
-$END$
+
+<!-- Nav -->
+<div class="navbar-fixed">
+    <nav class="z-depth-0 grey darken-4">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">Plands</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#staff">Staff</a></li>
+                <li><a href="/#vip">Patron</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#staff">Facts</a></li>
+                <li><a href="/#vip">Patron</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!-- / Nav -->
+
+<div class="container">
+    <div class="section">
+        <h1 class="center-align">Content List</h1>
+        <div class="row">
+            <div class="col s12 center-align">
+                <a href="/admin/content/edit/new" class="waves-effect waves-light btn grey darken-4">Add New Content</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <table class="striped">
+                    <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Value</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="content : ${contents}">
+                        <td th:text="${content.key}">Key</td>
+                        <td th:text="${content.value}">Value</td>
+                        <td>
+                            <a th:href="@{/admin/content/edit/{id}(id=${content.id})}" class="waves-effect waves-light btn-small grey darken-4">Edit</a>
+                            <a th:href="@{/admin/content/delete/{id}(id=${content.id})}" class="waves-effect waves-light btn-small red darken-4">Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer grey darken-4 z-depth-4">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Другое</h5>
+                <p class="grey-text text-lighten-4">Переходите в наши соцсети и играйте вместе!</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Наши соцсети</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="https://discord.gg/3vwKchsz">Discord</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://t.me/+1Zx_IhHKHrFlODdi">Telegram</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright grey darken-4 z-depth-4">
+        <div class="container">
+            Created with care, by Plands Team
+            <a class="grey-text text-lighten-4 right" href="#!">©Pioneer Lands 2023</a>
+        </div>
+    </div>
+</footer>
+<!-- /Footer -->
+
 </body>
 </html>

@@ -1,10 +1,9 @@
-package com.example.plandsSite.Controller;
-import com.example.plandsSite.Query.*;
+package com.plands.site.controller;
 
+import com.plands.site.query.MCQuery;
+import com.plands.site.query.QueryResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import java.net.InetSocketAddress;
-import java.io.IOException;
 
 @RestController
 public class MinecraftController {

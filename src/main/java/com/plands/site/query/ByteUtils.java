@@ -1,4 +1,4 @@
-package com.example.plandsSite.Query;
+package com.plands.site.query;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

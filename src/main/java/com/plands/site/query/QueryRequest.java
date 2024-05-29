@@ -1,4 +1,4 @@
-package com.example.plandsSite.Query;
+package com.plands.site.query;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;

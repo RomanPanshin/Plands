@@ -1,10 +1,10 @@
 
-package com.example.plandsSite.Controller;
+package com.plands.site.controller;
 
-import com.example.plandsSite.Model.AuditCode;
-import com.example.plandsSite.Repository.AuditCodeRepository;
-import com.example.plandsSite.Service.CodeGenerationService;
-import com.example.plandsSite.Service.RconService;
+import com.plands.site.model.AuditCode;
+import com.plands.site.repository.AuditCodeRepository;
+import com.plands.site.service.CodeGenerationService;
+import com.plands.site.service.RconService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 
 import java.util.UUID;

@@ -1,17 +1,17 @@
-package com.plands.site.Entity;
+package com.plands.site.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 public class Content {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @jakarta.persistence.GeneratedValue(strategy = jakarta.persistence.GenerationType.AUTO)
     private Long id;
 
-    @Column(unique = true)
+
     private String key;
 
-    @Lob
+
     private String value;
 
     public Long getId() {

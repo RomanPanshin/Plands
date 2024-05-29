@@ -1,4 +1,4 @@
-package com.example.plandsSite;
+package com.plands.site;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
