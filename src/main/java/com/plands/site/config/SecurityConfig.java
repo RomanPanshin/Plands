@@ -14,22 +14,26 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
     @Value("${code.generation.password}")
     private String authPassword;
+
     @Value("${code.generation.user}")
     private String user;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                .csrf().disable() // Disable CSRF for testing purposes. Consider enabling it in production.
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/admin/**").authenticated()  // Protect /admin/** URLs
-                                .anyRequest().permitAll()  // Allow all other URLs
+                                .requestMatchers("/admin/**").authenticated() // Protect /admin/** URLs
+                                .requestMatchers("/whitelist/generate").permitAll() // Allow public access to /whitelist/generate
+                                .anyRequest().permitAll() // Allow all other URLs
                 )
                 .formLogin(formLogin ->
                         formLogin
-                                .loginPage("/login")  // Specify custom login page
+                                .loginPage("/login") // Specify custom login page
                                 .permitAll()
                 )
                 .logout(logout ->
