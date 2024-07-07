@@ -79,15 +79,26 @@
 
         <form th:action="@{/whitelist/add}" method="post">
             <div class="row">
-                <div class="input-field col s12">
-                    <input id="nickname" type="text" name="playerName" required>
-                    <label for="nickname">Никнейм в Minecraft</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="nickname" type="text" name="playerName" required>
+                        <label for="nickname">Никнейм в Minecraft</label>
+                        <span id="nickname-error" class="helper-text red-text"></span>
+                    </div>
                 </div>
+
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input id="code" type="text" name="code" required>
                     <label for="code">Проверочный код</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email" name="email" required>
+                    <label for="email">Ваш Email</label>
+                    <span id="email-error" class="helper-text red-text"></span>
                 </div>
             </div>
             <button class="btn waves-effect waves-light support-button" type="submit">Начать путешествие!</button>
@@ -145,6 +156,75 @@
 <!-- /Footer -->
 
 <!-- Existing scripts and links -->
+<script>
+    $(document).ready(function() {
+        $("#email").on("blur", function() {
+            let email = $(this).val();
+            let emailError = $("#email-error");
+
+            if (!validateEmail(email)) {
+                emailError.text("Некорректный формат email.");
+                return;
+            }
+
+            // Check if email exists
+            $.ajax({
+                url: '/check-email', // Update this URL according to your controller endpoint
+                type: 'GET',
+                data: { email: email },
+                success: function(response) {
+                    if (response.exists) {
+                        emailError.text("Этот email уже используется.");
+                    } else {
+                        emailError.text("");
+                    }
+                },
+                error: function() {
+                    emailError.text("Ошибка при проверке email.");
+                }
+            });
+        });
+
+        $("#nickname").on("blur", function() {
+            let nickname = $(this).val();
+            let nicknameError = $("#nickname-error");
+
+            // Check if nickname exists
+            $.ajax({
+                url: '/check-nickname', // Update this URL according to your controller endpoint
+                type: 'GET',
+                data: { nickname: nickname },
+                success: function(response) {
+                    if (response.exists) {
+                        nicknameError.text("Этот никнейм уже используется.");
+                    } else {
+                        nicknameError.text("");
+                    }
+                },
+                error: function() {
+                    nicknameError.text("Ошибка при проверке никнейма.");
+                }
+            });
+        });
+
+        $("form").on("submit", function(e) {
+            let emailError = $("#email-error").text();
+            let nicknameError = $("#nickname-error").text();
+            if (emailError || nicknameError) {
+                e.preventDefault();
+                alert("Пожалуйста, исправьте ошибки перед отправкой формы.");
+            }
+        });
+    });
+
+    function validateEmail(email) {
+        let re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return re.test(email);
+    }
+</script>
+
+
+
 
 </body>
 </html>

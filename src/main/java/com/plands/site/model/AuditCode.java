@@ -1,11 +1,11 @@
 package com.plands.site.model;
 
 import jakarta.persistence.*;
-
 import java.util.UUID;
 
 @Entity
 public class AuditCode {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -13,6 +13,11 @@ public class AuditCode {
     private UUID code;
     private boolean used;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    // getters and setters
     public UUID getId() {
         return id;
     }
@@ -37,12 +42,21 @@ public class AuditCode {
         this.used = used;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "AuditCode{" +
                 "id=" + id +
                 ", code=" + code +
                 ", used=" + used +
+                ", user=" + user +
                 '}';
     }
 }

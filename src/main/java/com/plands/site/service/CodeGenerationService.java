@@ -18,19 +18,34 @@ public class CodeGenerationService {
     @Value("${code.generation.password}")
     private String authPassword;
 
-    public UUID generateUniqueAuditCode(String password) {
-        if (!authPassword.equals(password)) {
-            return null;
+    public synchronized UUID generateUniqueAuditCode(String password) {
+        if (authPassword.equals(password)) {
+            UUID newCode;
+            boolean isUnique = false;
+            int attempts = 0;
+
+            do {
+                newCode = UUID.randomUUID();
+                if (auditCodeRepository.findByCode(newCode) == null) {
+                    isUnique = true;
+                }
+                attempts++;
+            } while (!isUnique && attempts < 10);
+
+            if (!isUnique) {
+                return null;
+            }
+
+            return newCode;
         }
+        return null;
+    }
 
-        UUID code = UUID.randomUUID();
-
-        AuditCode newCode = new AuditCode();
-        newCode.setCode(code);
-        newCode.setUsed(false);
-
-        auditCodeRepository.save(newCode);
-
-        return code;
+    public AuditCode createAuditCode(UUID newCode) {
+        AuditCode auditCode = new AuditCode();
+        auditCode.setCode(newCode);
+        auditCode.setUsed(false);
+        auditCodeRepository.save(auditCode);
+        return auditCode;
     }
 }
