@@ -51,12 +51,16 @@
                 <li><a href="/#staff" class="nav-link" data-lang="staff">Staff</a></li>
                 <li><a href="/#vip" class="nav-link" data-lang="patron">Patron</a></li>
                 <li><a href="/#contact" class="nav-link" data-lang="contact">Contact</a></li>
+                <li><a href="?lang=en" class="nav-link" data-lang="english">English</a></li>
+                <li><a href="?lang=ru" class="nav-link" data-lang="russian">Русский</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="/#about" class="nav-link" data-lang="about">About</a></li>
-                <li><a href="/#staff" class="nav-link" data-lang="staff">Facts</a></li>
+                <li><a href="/#staff" class="nav-link" data-lang="staff">Staff</a></li>
                 <li><a href="/#vip" class="nav-link" data-lang="patron">Patron</a></li>
                 <li><a href="/#contact" class="nav-link" data-lang="contact">Contact</a></li>
+                <li><a href="?lang=en" class="nav-link" data-lang="english">English</a></li>
+                <li><a href="?lang=ru" class="nav-link" data-lang="russian">Русский</a></li>
             </ul>
         </div>
     </nav>
@@ -162,7 +166,9 @@
                 "error-message": "Error: Your verification code is invalid or has already been used.",
                 "footer-other": "Other",
                 "footer-description": "Join our social networks and play together!",
-                "footer-socials": "Our Social Networks"
+                "footer-socials": "Our Social Networks",
+                "english": "English",
+                "russian": "Русский"
             },
             ru: {
                 "about": "О нас",
@@ -188,7 +194,9 @@
                 "error-message": "Ошибка: Ваш проверочный код недействителен или уже был использован.",
                 "footer-other": "Другое",
                 "footer-description": "Переходите в наши соцсети и играйте вместе!",
-                "footer-socials": "Наши соцсети"
+                "footer-socials": "Наши соцсети",
+                "english": "English",
+                "russian": "Русский"
             }
         };
 
@@ -199,12 +207,13 @@
             });
         }
 
-        var userLang = navigator.language || navigator.userLanguage;
-        if (userLang.startsWith("ru")) {
-            setLanguage("ru");
-        } else {
-            setLanguage("en");
+        function getQueryParameter(name) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
         }
+
+        var lang = getQueryParameter("lang") || (navigator.language.startsWith("ru") ? "ru" : "en");
+        setLanguage(lang);
 
         $("#email").on("blur", function() {
             let email = $(this).val();
