@@ -9,13 +9,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 
-
-
-  <!-- Roboto Font + Icons -->
-<!--   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-<!--   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet"> -->
-
-
   <!-- Font Awesome -->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
@@ -47,113 +40,109 @@
 
 <body>
 
-  <!-- Nav -->
-  <div class="header" th:style="'background-image:url(' + @{/img/background.png} + '); background-repeat: no-repeat, repeat; background-position: 100% 0%; background-size: cover;'">
-    <div class="navbar-fixed">
-      <nav class="z-depth-0">
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">Plands</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#about">About</a></li>
-            <li><a href="#staff">Staff</a></li>
-            <li><a href="#vip">Patron</a></li>
-<!--            <li><a href="#screenshots">Screenshots</a></li>-->
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <li><a href="#about">About</a></li>
-            <li><a href="#staff">Facts</a></li>
-            <li><a href="#vip">Patron</a></li>
-<!--            <li><a href="#screenshots">Screenshots</a></li>-->
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
+<!-- Nav -->
+<div class="header" th:style="'background-image:url(' + @{/img/background.png} + '); background-repeat: no-repeat, repeat; background-position: 100% 0%; background-size: cover;'">
+  <div class="navbar-fixed">
+    <nav class="z-depth-0">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Plands</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#about">About</a></li>
+          <li><a href="#staff">Staff</a></li>
+          <li><a href="#vip">Patron</a></li>
+          <!--            <li><a href="#screenshots">Screenshots</a></li>-->
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="#about">About</a></li>
+          <li><a href="#staff">Facts</a></li>
+          <li><a href="#vip">Patron</a></li>
+          <!--            <li><a href="#screenshots">Screenshots</a></li>-->
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
 
-      <!-- / Nav -->
+    <!-- / Nav -->
 
-    </div>
-    <div class="header-content center-align" data-aos="fade">
-      <h1 style="padding-top: 6%;">Pioneer Lands</h1>
-      <h5 style="">Приключения ждут</h5>
-      <a class="waves-effect waves-light btn-large grey darken-4" style="margin-bottom: 10%; margin-top: 2%;" data-clipboard-text="plands.ru" id="copyButton">IP: plands.ru</a>
-    </div>
   </div>
+  <div class="header-content center-align" data-aos="fade">
+    <h1 style="padding-top: 6%;">Pioneer Lands</h1>
+    <h5 style="">Adventures Await</h5>
+    <a class="waves-effect waves-light btn-large grey darken-4" style="margin-bottom: 10%; margin-top: 2%;" data-clipboard-text="plands.ru" id="copyButton">IP: plands.ru</a>
+  </div>
+</div>
 
-
-
-  <!-- About -->
-
-  <div class="about" id="about">
-    <div class="main">
-      <div class="row">
-        <div class="col s12 l5 align-center">
-          <img class="responsive-img" th:src="@{/img/loop00.gif}" data-aos="fade-right">
-        </div>
-        <div class="col s12 l7" data-aos="fade-left">
-          <h4>Plands - Pioneer Lands</h4>
-          <p>Откройте для себя Minecraft заново!
-            На нашем сервере вы найдете не только знакомый ванильный мир, но и множество уникальных добавлений.
-            Мы тщательно разработали свой контент: от захватывающих новых структур и измененных биомов до кастомных мобов с уникальными наградами.
-            Присоединяйтесь к нашему дружелюбному сообществу, исследуйте, создавайте и наслаждайтесь каждым моментом вместе с нами!</p>
-          <a class="waves-effect waves-light btn-large grey darken-4" style="margin-top: 2%;" href="https://discord.gg/xYQQ6r43T9">Discord</a>
-        </div>
+<!-- About -->
+<div class="about" id="about">
+  <div class="main">
+    <div class="row">
+      <div class="col s12 l5 align-center">
+        <img class="responsive-img" th:src="@{/img/loop00.gif}" data-aos="fade-right">
+      </div>
+      <div class="col s12 l7" data-aos="fade-left">
+        <h4>Pioneer Lands</h4>
+        <p>Discover Minecraft anew!
+          On our server, you'll find not only the familiar vanilla world but also many unique additions.
+          We've carefully crafted our content: from exciting new structures and altered biomes to custom mobs with unique rewards.
+          Join our friendly community, explore, create, and enjoy every moment with us!</p>
+        <a class="waves-effect waves-light btn-large grey darken-4" style="margin-top: 2%;" href="https://discord.gg/xYQQ6r43T9">Discord</a>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- / About -->
+<!-- / About -->
 
-  <!-- Info -->
+<!-- Info -->
 
-  <div class="info center-align" data-aos="fade">
-    <div class="main">
-      <div class="row">
-        <div class="col l4 s12">
-          <img class="responsive-img" th:src="@{/img/heart.png}">
-          <h4>Инвайт</h4>
-<!--          <i class="chip">-->
-<!--            <span data-playercounter-ip="plands.ru"></span> Players Online-->
-<!--          </i>-->
-          <p>Если у тебя уже есть друзья или знакомые на сервере, попроси их отправить тебе приглашение.
-            Это простой и быстрый способ стать частью нашего уютного уголка.</p>
-          <a href="/audit" class="btn-large waves-effect waves-light grey darken-4" style="margin-bottom: 9%; margin-top: 2%;">Активировать код</a>
-        </div>
-        <div class="col l4 s12">
-          <img class="responsive-img" th:src="@{/img/book2.gif}">
-          <h4>Расскажи о себе</h4>
-<!--          <i class="chip">-->
-<!--            <span data-playercounter-ip="play.guildcraft.org"></span> Players Online-->
-<!--          </i>-->
-          <p>Нет знакомых на сервере? Не проблема! Просто расскажи нам немного о себе и почему ты хочешь исследовать наш уникальный мир.
-            Мы всегда рады новым лицам!</p>
-          <a href="https://discord.gg/xYQQ6r43T9" class="btn-large waves-effect waves-light grey darken-4" style="margin-bottom: 9%; margin-top: 2%;">Рассказать</a>
-        </div>
-        <div class="col l4 s12">
-          <img class="responsive-img" th:src="@{/img/ivent.png}">
-          <h4>Ивент</h4>
-<!--          <i class="chip">-->
-<!--            <span data-playercounter-ip="play.hypixel.net"></span> Players Online-->
-<!--          </i>-->
-          <p>Время от времени мы проводим интересные ивенты.
-            Поучаствовав в одном из них, ты не только проведешь время весело и интересно, но и сможешь стать полноценным участником нашего сообщества.</p>
-          <a href="https://discord.gg/xYQQ6r43T9" class="btn-large waves-effect waves-light grey darken-4" style="margin-bottom: 9%; margin-top: 2%;">Участвовать</a>
-        </div>
+<div class="info center-align" data-aos="fade">
+  <div class="main">
+    <div class="row">
+      <div class="col l4 s12">
+        <img class="responsive-img" th:src="@{/img/heart.png}">
+        <h4>Invite</h4>
+        <!--          <i class="chip">-->
+        <!--            <span data-playercounter-ip="plands.ru"></span> Players Online-->
+        <!--          </i>-->
+        <p>If you already have friends or acquaintances on the server, ask them to send you an invitation.
+          It's a simple and quick way to become part of our cozy corner.</p>
+        <a href="/audit" class="btn-large waves-effect waves-light grey darken-4" style="margin-bottom: 9%; margin-top: 2%;">Activate Code</a>
+      </div>
+      <div class="col l4 s12">
+        <img class="responsive-img" th:src="@{/img/book2.gif}">
+        <h4>Tell Us About Yourself</h4>
+        <!--          <i class="chip">-->
+        <!--            <span data-playercounter-ip="play.guildcraft.org"></span> Players Online-->
+        <!--          </i>-->
+        <p>No acquaintances on the server? No problem! Just tell us a bit about yourself and why you want to explore our unique world.
+          We are always happy to welcome new faces!</p>
+        <a href="https://discord.gg/xYQQ6r43T9" class="btn-large waves-effect waves-light grey darken-4" style="margin-bottom: 9%; margin-top: 2%;">Tell Us</a>
+      </div>
+      <div class="col l4 s12">
+        <img class="responsive-img" th:src="@{/img/ivent.png}">
+        <h4>Event</h4>
+        <!--          <i class="chip">-->
+        <!--            <span data-playercounter-ip="play.hypixel.net"></span> Players Online-->
+        <!--          </i>-->
+        <p>From time to time, we hold interesting events.
+          Participating in one of them, you will not only have fun and interesting time but also be able to become a full member of our community.</p>
+        <a href="https://discord.gg/xYQQ6r43T9" class="btn-large waves-effect waves-light grey darken-4" style="margin-bottom: 9%; margin-top: 2%;">Participate</a>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- / Info -->
+<!-- / Info -->
 
-  <!-- Staff -->
+<!-- Staff -->
 
-  <div class="staff" id="staff">
-    <div class="main">
-      <div class="row">
-        <div class="col s12">
-          <h4 class="center-align" style="padding-bottom: 1
-        %;">Путеводитель по нашему серверу</h5>
+<div class="staff" id="staff">
+  <div class="main">
+    <div class="row">
+      <div class="col s12">
+        <h4 class="center-align" style="padding-bottom: 1%;">Our Server Guide</h4>
       </div>
     </div>
     <div class="row">
@@ -172,15 +161,15 @@
           <div class="row">
             <div class="col s12">
               <blockquote style="margin: 0% 8% 0% 8%;">
-                У нас ванильный Minecraft 1.20.4 с кастовыми плагинами. Мы обновляемся, сохраняя дух исследований для настоящих путешественников!
+                We have vanilla Minecraft 1.20.4 with custom plugins. We update while maintaining the spirit of exploration for true adventurers!
               </blockquote>
             </div>
           </div>
           <div class="row main">
             <div class="col s12 center-align">
-<!--              <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
-<!--              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
-<!--            <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>-->
+              <!--              <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
+              <!--              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+              <!--            <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>-->
             </div>
           </div>
         </div>
@@ -194,21 +183,21 @@
           </div>
           <div class="row main">
             <div class="col s12 center-align">
-              <h5>Дух Исследований</h5>
+              <h5>Spirit of Exploration</h5>
             </div>
           </div>
           <div class="row">
             <div class="col s12">
               <blockquote style="margin: 0% 8% 0% 8%;">
-                Мы разрабатываем уникальный контент для Minecraft, добавляя новые данжи и боссов. Наша миссия — заставить каждого игрока чувствовать себя истинным исследователем, готовым к приключениям
+                We develop unique content for Minecraft, adding new dungeons and bosses. Our mission is to make every player feel like a true explorer ready for adventure.
               </blockquote>
             </div>
           </div>
           <div class="row main">
             <div class="col s12 center-align">
-<!--              <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
-<!--              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
-<!--            <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>-->
+              <!--              <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
+              <!--              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+              <!--            <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>-->
             </div>
           </div>
         </div>
@@ -222,21 +211,21 @@
           </div>
           <div class="row main">
             <div class="col s12 center-align">
-              <h5>Мы Ценим Каждого Игрока</h5>
+              <h5>We Value Every Player</h5>
             </div>
           </div>
           <div class="row">
             <div class="col s12">
               <blockquote style="margin: 0% 8% 0% 8%;">
-                У нас уютное закрытое сообщество, где каждый ценится. Мы тщательно подходим к выбору участников, ищем единомышленников для совместного творчества и приключений.
+                We have a cozy closed community where everyone is valued. We carefully select members, looking for like-minded individuals for joint creativity and adventures.
               </blockquote>
             </div>
           </div>
           <div class="row main">
             <div class="col s12 center-align">
-<!--              <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
-<!--              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
-<!--            <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>-->
+              <!--              <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
+              <!--              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+              <!--            <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>-->
             </div>
           </div>
         </div>
@@ -250,21 +239,21 @@
           </div>
           <div class="row main">
             <div class="col s12 center-align">
-              <h5>Бесплатно</h5>
+              <h5>Free Entry</h5>
             </div>
           </div>
           <div class="row">
             <div class="col s12">
               <blockquote style="margin: 0% 8% 0% 8%;">
-                У нас на сервере вход свободный — мы ценим людей, а не деньги. Если захочется поддержать нас, будем рады любой помощи!
+                Our server has free entry - we value people, not money. If you want to support us, we will be happy with any help!
               </blockquote>
             </div>
           </div>
           <div class="row main">
             <div class="col s12 center-align">
-<!--              <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>-->
+              <!--              <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                          <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>-->
             </div>
           </div>
         </div>
@@ -272,260 +261,234 @@
     </div>
   </div>
 </div>
-  <!-- / Staff -->
+<!-- / Staff -->
 
-  <div class="vip center-align" id="vip">
-    <div class="main">
-      <div class="row" data-aos="fade">
-        <div class="col s12">
-          <h4>Информация о Поддержке</h4>
+<div class="vip center-align" id="vip">
+  <div class="main">
+    <div class="row" data-aos="fade">
+      <div class="col s12">
+        <h4>Support Information</h4>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Left panel: Social Support -->
+      <div class="col s12 l4" data-aos="fade-right">
+        <div class="card-panel">
+          <div class="row">
+            <div class="col s12">
+              <h5>Social Support</h5>
+              <br>
+              <table class="centered responsive-table striped">
+                <tbody>
+                <tr>
+                  <td>Unique chat name color.</td>
+                </tr>
+                <tr>
+                  <td>Added to the list of partners.</td>
+                </tr>
+                <tr>
+                  <td>Access to exclusive chat emojis.</td>
+                </tr>
+                <tr>
+                  <td>Special effect upon login.</td>
+                </tr>
+                <tr>
+                  <td>Personal pet in the game.</td>
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              <a class="waves-effect waves-light btn-large grey darken-4" href="https://t.me/+1Zx_IhHKHrFlODdi">Learn More</a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <!-- Левая панель: Социальная Поддержка -->
-        <div class="col s12 l4" data-aos="fade-right">
-          <div class="card-panel">
-            <div class="row">
-              <div class="col s12">
-                <h5>Социальная Поддержка</h5>
-                <br>
-                <table class="centered responsive-table striped">
-                  <tbody>
-                  <tr>
-                    <td>Уникальный цвет вашего ника в чате.</td>
-                  </tr>
-                  <tr>
-                    <td>Добавление в список партнеров.</td>
-                  </tr>
-                  <tr>
-                    <td>Доступ к эксклюзивным эмодзи в чате.</td>
-                  </tr>
-                  <tr>
-                    <td>Специальный эффект при авторизации.</td>
-                  </tr>
-                  <tr>
-                    <td>Личный питомец в игре.</td>
-                  </tr>
-                  </tbody>
-                </table>
-                <br>
-                <a class="waves-effect waves-light btn-large grey darken-4" href="https://t.me/+1Zx_IhHKHrFlODdi">Узнать Больше</a>
-              </div>
+      <!-- Center panel: Financial Support -->
+      <div class="col s12 l4" data-aos="fade">
+        <div class="card-panel">
+          <div class="row">
+            <div class="col s12">
+              <h5>Financial Support</h5>
+              <span>200 RUB/month</span>
+              <br><br>
+              <table class="centered responsive-table striped">
+                <tbody>
+                <tr>
+                  <td>Unique chat name color.</td>
+                </tr>
+                <tr>
+                  <td>Added to the list of patrons.</td>
+                </tr>
+                <tr>
+                  <td>Access to exclusive chat emojis.</td>
+                </tr>
+                <tr>
+                  <td>Special effect upon login.</td>
+                </tr>
+                <tr>
+                  <td>Personal pet in the game.</td>
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              <a class="waves-effect waves-light btn-large support-button" href="https://yoomoney.ru/to/410013560878456">Support</a>
             </div>
           </div>
         </div>
-        <!-- Центральная панель: Финансовая Поддержка -->
-        <div class="col s12 l4" data-aos="fade">
-          <div class="card-panel">
-            <div class="row">
-              <div class="col s12">
-                <h5>Финансовая Поддержка</h5>
-                <span>200 руб./месяц</span>
-                <br><br>
-                <table class="centered responsive-table striped">
-                  <tbody>
-                  <tr>
-                    <td>Уникальный цвет вашего ника в чате.</td>
-                  </tr>
-                  <tr>
-                    <td>Добавление в список патронов.</td>
-                  </tr>
-                  <tr>
-                    <td>Доступ к эксклюзивным эмодзи в чате.</td>
-                  </tr>
-                  <tr>
-                    <td>Специальный эффект при авторизации.</td>
-                  </tr>
-                  <tr>
-                    <td>Личный питомец в игре.</td>
-                  </tr>
-                  </tbody>
-                </table>
-                <br>
-                <a class="waves-effect waves-light btn-large support-button" href="https://yoomoney.ru/to/410013560878456">Поддержать</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Правая панель: Создание Контента -->
-        <div class="col s12 l4" data-aos="fade-left">
-          <div class="card-panel">
-            <div class="row">
-              <div class="col s12">
-                <h5>Создание Контента</h5>
-                <br>
-                <table class="centered responsive-table striped">
-                  <tbody>
-                  <tr>
-                    <td>Уникальный цвет вашего ника в чате.</td>
-                  </tr>
-                  <tr>
-                    <td>Добавление в список криейторов.</td>
-                  </tr>
-                  <tr>
-                    <td>Доступ к эксклюзивным эмодзи в чате.</td>
-                  </tr>
-                  <tr>
-                    <td>Специальный эффект при авторизации.</td>
-                  </tr>
-                  <tr>
-                    <td>Личный питомец в игре.</td>
-                  </tr>
-                  </tbody>
-                </table>
-                <br>
-                <a class="waves-effect waves-light btn-large grey darken-4" href="https://t.me/+1Zx_IhHKHrFlODdi">Узнать Больше</a>
-              </div>
+      </div>
+      <!-- Right panel: Content Creation -->
+      <div class="col s12 l4" data-aos="fade-left">
+        <div class="card-panel">
+          <div class="row">
+            <div class="col s12">
+              <h5>Content Creation</h5>
+              <br>
+              <table class="centered responsive-table striped">
+                <tbody>
+                <tr>
+                  <td>Unique chat name color.</td>
+                </tr>
+                <tr>
+                  <td>Added to the list of creators.</td>
+                </tr>
+                <tr>
+                  <td>Access to exclusive chat emojis.</td>
+                </tr>
+                <tr>
+                  <td>Special effect upon login.</td>
+                </tr>
+                <tr>
+                  <td>Personal pet in the game.</td>
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              <a class="waves-effect waves-light btn-large grey darken-4" href="https://t.me/+1Zx_IhHKHrFlODdi">Learn More</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
+<!-- /Vip -->
 
-
-
-
-  <!-- /Vip -->
-
-  <!-- Screenshots -->
-<!--  <div class="screenshots center-align" id="screenshots">-->
-<!--    <div class="main" data-aos="fade">-->
-<!--      <div class="row">-->
-<!--        <div class="col s12">-->
-<!--          <h4>Server Screenshots</h4>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="row">-->
-<!--        <div class="col l3 s6">-->
-<!--          <div class="card-panel" style="margin: 0; padding: 0;">-->
-<!--            <img class="responsive-img materialboxed" src="./src/img/cityscape.jpg">-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="col l3 s6">-->
-<!--          <div class="card-panel" style="margin: 0; padding: 0;">-->
-<!--            <img class="responsive-img materialboxed" src="./src/img/cityscape.jpg">-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="col l3 s6">-->
-<!--          <div class="card-panel" style="margin: 0; padding: 0;">-->
-<!--            <img class="responsive-img materialboxed" src="./src/img/cityscape.jpg">-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="col l3 s6">-->
-<!--          <div class="card-panel" style="margin: 0; padding: 0;">-->
-<!--            <img class="responsive-img materialboxed" src="./src/img/cityscape.jpg">-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="row">-->
-<!--        <div class="col l3 s6">-->
-<!--          <div class="card-panel" style="margin: 0; padding: 0;">-->
-<!--            <img class="responsive-img materialboxed" src="./src/img/cityscape.jpg">-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="col l3 s6">-->
-<!--          <div class="card-panel" style="margin: 0; padding: 0;">-->
-<!--            <img class="responsive-img materialboxed" src="./src/img/cityscape.jpg">-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="col l3 s6">-->
-<!--          <div class="card-panel" style="margin: 0; padding: 0;">-->
-<!--            <img class="responsive-img materialboxed" src="./src/img/cityscape.jpg">-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="col l3 s6">-->
-<!--          <div class="card-panel" style="margin: 0; padding: 0;">-->
-<!--            <img class="responsive-img materialboxed" src="./src/img/cityscape.jpg">-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-
-  <!-- /Screenshots -->
-<!--  th:style="'background-image:url(' + @{/img/background.png} + '); background-repeat: no-repeat, repeat; background-position: 100% 0%; background-size: cover;'">-->
-  <!-- Contact -->
-<!--  <div class="contact" id="contact"  th:style="'background-image:url(' + @{/img/background.png} + '); background-position: 50% 10%; background-attachment: fixed;">-->
-<!--  <div class="contact" id="contact" th:style="|background-image:url('@{/img/background.png}'); background-position: 50% 10%; background-attachment: fixed;|">-->
-<!--  <div class="main">-->
-<!--      <div class="card-panel" data-aos="fade-up">-->
-<!--        <h4 class="center-align">Свяжитесь с нами!</h4>-->
-<!--        <form class="col s12">-->
-<!--          <div class="row">-->
-<!--            <div class="input-field col s6">-->
-<!--              <input type="text" class="form-control" id="name" name="name" placeholder="Name" required />-->
-<!--              <label for="name">Имя или никнейм</label>-->
-<!--            </div>-->
-<!--            <div class="input-field col s6">-->
-<!--              <input type="text" class="form-control" id="email" name="email" placeholder="Email" required />-->
-<!--              <label for="email">Email</label>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="row">-->
-<!--            <form class="col s12">-->
-<!--              <div class="row">-->
-<!--                <div class="input-field col s12">-->
-<!--                  <textarea id="message" class="materialize-textarea"></textarea>-->
-<!--                  <label for="message">Ваше сообщение</label>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div>-->
-<!--                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect grey darken-4'>Отправить</button>-->
-<!--              </div>-->
-<!--            </form>-->
-<!--          </div>-->
-<!--        </form>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-  <!-- /Contact -->
-
-
-  <!-- Footer -->
-  <footer class="page-footer grey darken-4 z-depth-4">
+<!-- Footer -->
+<footer class="page-footer grey darken-4 z-depth-4">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">More</h5>
+        <p class="grey-text text-lighten-4">Visit our social networks and play together!</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Our Social Networks</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://discord.gg/xYQQ6r43T9">Discord</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://t.me/+1Zx_IhHKHrFlODdi">Telegram</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://vk.com/plands">VK</a></li>
+          <!--            <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>-->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright grey darken-4 z-depth-4">
     <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Другое</h5>
-          <p class="grey-text text-lighten-4">Переходите в наши соцсети и играйте вместе!</p>
-        </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Наши соцсети</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="https://discord.gg/xYQQ6r43T9">Discord</a></li>
-            <li><a class="grey-text text-lighten-3" href="https://t.me/+1Zx_IhHKHrFlODdi">Telegram</a></li>
-            <li><a class="grey-text text-lighten-3" href="https://vk.com/plands">VK</a></li>
-<!--            <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>-->
-          </ul>
-        </div>
-      </div>
+      <!-- Please give credit, where credit is due. Leave this here... -->
+      Created with care, by Plands Team
+      <a class="grey-text text-lighten-4 right" href="#!">©Pioneer Lands 2024</a>
     </div>
-    <div class="footer-copyright grey darken-4 z-depth-4">
-      <div class="container">
-        <!-- Please give credit, where credit is due. Leave this here... -->
-        Created with care, by Plands Team
-        <a class="grey-text text-lighten-4 right" href="#!">©Pioneer Lands 2024</a>
-      </div>
-    </div>
-  </footer>
-  <!-- /Footer -->
+  </div>
+</footer>
+<!-- /Footer -->
 
-  <!-- AOS INIT -->
-  <script>
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-sine',
-      disable: 'mobile',
-    });
-  </script>
+<!-- AOS INIT -->
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-sine',
+    disable: 'mobile',
+  });
+</script>
 
-  <!-- Mobile Nav INIT -->
-  <script>
-    $(".button-collapse").sideNav();
-  </script>
+<!-- Mobile Nav INIT -->
+<script>
+  $(".button-collapse").sideNav();
+</script>
+
+<!-- Language Detection Script -->
+<script>
+  $(document).ready(function(){
+    var userLang = navigator.language || navigator.userLanguage;
+    if (userLang.startsWith("ru")) {
+      // Show Russian content
+      $(".header-content h1").text("Pioneer Lands");
+      $(".header-content h5").text("Приключения ждут");
+      $("#copyButton").text("IP: plands.ru");
+      $("#about h4").text("Pioneer Lands");
+      $("#about p").html("Откройте для себя Minecraft заново!<br>На нашем сервере вы найдете не только знакомый ванильный мир, но и множество уникальных добавлений.<br>Мы тщательно разработали свой контент: от захватывающих новых структур и измененных биомов до кастомных мобов с уникальными наградами.<br>Присоединяйтесь к нашему дружелюбному сообществу, исследуйте, создавайте и наслаждайтесь каждым моментом вместе с нами!");
+      $("#about a").text("Discord");
+      $(".info h4").each(function(i){
+        var titles = ["Инвайт", "Расскажи о себе", "Ивент"];
+        $(this).text(titles[i]);
+      });
+      $(".info p").each(function(i){
+        var texts = [
+          "Если у тебя уже есть друзья или знакомые на сервере, попроси их отправить тебе приглашение.<br>Это простой и быстрый способ стать частью нашего уютного уголка.",
+          "Нет знакомых на сервере? Не проблема! Просто расскажи нам немного о себе и почему ты хочешь исследовать наш уникальный мир.<br>Мы всегда рады новым лицам!",
+          "Время от времени мы проводим интересные ивенты.<br>Поучаствовав в одном из них, ты не только проведешь время весело и интересно, но и сможешь стать полноценным участником нашего сообщества."
+        ];
+        $(this).html(texts[i]);
+      });
+      $(".info a").each(function(i){
+        var texts = ["Активировать код", "Рассказать", "Участвовать"];
+        $(this).text(texts[i]);
+      });
+      $("#staff h4").text("Путеводитель по нашему серверу");
+      $(".staff h5").each(function(i){
+        var titles = ["1.20.4", "Дух Исследований", "Мы Ценим Каждого Игрока", "Бесплатно"];
+        $(this).text(titles[i]);
+      });
+      $(".staff blockquote").each(function(i){
+        var texts = [
+          "У нас ванильный Minecraft 1.20.4 с кастовыми плагинами. Мы обновляемся, сохраняя дух исследований для настоящих путешественников!",
+          "Мы разрабатываем уникальный контент для Minecraft, добавляя новые данжи и боссов. Наша миссия — заставить каждого игрока чувствовать себя истинным исследователем, готовым к приключениям.",
+          "У нас уютное закрытое сообщество, где каждый ценится. Мы тщательно подходим к выбору участников, ищем единомышленников для совместного творчества и приключений.",
+          "У нас на сервере вход свободный — мы ценим людей, а не деньги. Если захочется поддержать нас, будем рады любой помощи!"
+        ];
+        $(this).html(texts[i]);
+      });
+      $("#vip h4").text("Информация о Поддержке");
+      $(".vip h5").each(function(i){
+        var titles = ["Социальная Поддержка", "Финансовая Поддержка", "Создание Контента"];
+        $(this).text(titles[i]);
+      });
+      $(".vip table tbody tr td").each(function(i){
+        var texts = [
+          "Уникальный цвет вашего ника в чате.",
+          "Добавление в список партнеров.",
+          "Доступ к эксклюзивным эмодзи в чате.",
+          "Специальный эффект при авторизации.",
+          "Личный питомец в игре."
+        ];
+        $(this).text(texts[i % 5]);
+      });
+      $(".vip a").each(function(i){
+        var texts = ["Узнать Больше", "Поддержать", "Узнать Больше"];
+        $(this).text(texts[i]);
+      });
+      $("footer h5:first").text("Другое");
+      $("footer p").text("Переходите в наши соцсети и играйте вместе!");
+      $("footer h5:last").text("Наши соцсети");
+      $("footer ul li a").each(function(i){
+        var texts = ["Discord", "Telegram", "VK"];
+        $(this).text(texts[i]);
+      });
+      $(".footer-copyright div:first").text("Создано с заботой, командой Plands");
+    }
+  });
+</script>
 </body>
 
 </html>

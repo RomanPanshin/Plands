@@ -10,13 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 
-
-
-    <!-- Roboto Font + Icons -->
-    <!--   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <!--   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet"> -->
-
-
     <!-- Font Awesome -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
@@ -33,7 +26,7 @@
     <!-- Theme JS -->
     <script th:src="@{/js/smoothscroll.js}"></script>
     <script th:src="@{/js/clipboardHandler.js}"></script>
-    <script  th:src="@{/js/nav.js}"></script>
+    <script th:src="@{/js/nav.js}"></script>
 
     <!-- Site Title -->
     <title>Pioneer Lands</title>
@@ -49,94 +42,82 @@
 
 <!-- Nav -->
 <div class="navbar-fixed">
-    <nav class="z-depth-0 grey darken-4"> <!-- Applied grey darken-4 class here -->
+    <nav class="z-depth-0 grey darken-4">
         <div class="nav-wrapper">
             <a href="/" class="brand-logo">Plands</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/#about">About</a></li>
-                <li><a href="/#staff">Staff</a></li>
-                <li><a href="/#vip">Patron</a></li>
-                <li><a href="/#contact">Contact</a></li>
+                <li><a href="/#about" class="nav-link" data-lang="about">About</a></li>
+                <li><a href="/#staff" class="nav-link" data-lang="staff">Staff</a></li>
+                <li><a href="/#vip" class="nav-link" data-lang="patron">Patron</a></li>
+                <li><a href="/#contact" class="nav-link" data-lang="contact">Contact</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-                <li><a href="/#about">About</a></li>
-                <li><a href="/#staff">Facts</a></li>
-                <li><a href="/#vip">Patron</a></li>
-                <li><a href="/#contact">Contact</a></li>
+                <li><a href="/#about" class="nav-link" data-lang="about">About</a></li>
+                <li><a href="/#staff" class="nav-link" data-lang="staff">Facts</a></li>
+                <li><a href="/#vip" class="nav-link" data-lang="patron">Patron</a></li>
+                <li><a href="/#contact" class="nav-link" data-lang="contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 </div>
 <!-- / Nav -->
 
-
 <div class="main">
-
     <div class="info">
-        <h2>Добавьте свой никнейм в Whitelist</h2>
-        <p>Введите ваш никнейм в Minecraft и проверочный код, чтобы добавить себя в Whitelist на нашем сервере.</p>
-
+        <h2 data-lang="whitelist-title">Add Your Nickname to the Whitelist</h2>
+        <p data-lang="whitelist-description">Enter your Minecraft nickname and verification code to add yourself to the whitelist on our server.</p>
         <form th:action="@{/whitelist/add}" method="post">
             <div class="row">
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="nickname" type="text" name="playerName" required>
-                        <label for="nickname">Никнейм в Minecraft</label>
+                        <label for="nickname" data-lang="nickname-label">Minecraft Nickname</label>
                         <span id="nickname-error" class="helper-text red-text"></span>
                     </div>
                 </div>
-
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input id="code" type="text" name="code" required>
-                    <label for="code">Проверочный код</label>
+                    <label for="code" data-lang="code-label">Verification Code</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input id="email" type="email" name="email" required>
-                    <label for="email">Ваш Email</label>
+                    <label for="email" data-lang="email-label">Your Email</label>
                     <span id="email-error" class="helper-text red-text"></span>
                 </div>
             </div>
-            <button class="btn waves-effect waves-light support-button" type="submit">Начать путешествие!</button>
+            <button class="btn waves-effect waves-light support-button" type="submit" data-lang="submit-button">Start your adventure!</button>
         </form>
         <div th:if="${status == 'success'}">
-            <h3>Поздравляем!</h3>
-            <p>Ваш доступ к серверу Pioneer Lands подтверждён.</p>
+            <h3 data-lang="success-title">Congratulations!</h3>
+            <p data-lang="success-message">Your access to the Pioneer Lands server is confirmed.</p>
             <ul>
-                <li><b>Шаг 1:</b> Убедитесь, что у вас установлена версия Minecraft 1.20.4.</li>
-                <li><b>Шаг 2:</b> Запустите игру под тем никнеймом, который вы указали.</li>
-                <li><b>Шаг 3:</b> В меню "Многопользовательская игра" выберите "Добавить сервер" и введите адрес <button id="copyButton" class="btn waves-effect waves-light support-button" data-clipboard-text="plands.ru">
-                    <b>plands.ru</b>
-                </button>
-                </li>
-                <li><b>Шаг 4:</b> Подключитесь к серверу и начните своё приключение в мире Pioneer Lands!</li>
+                <li><b data-lang="step1-title">Step 1:</b> <span data-lang="step1-description">Make sure you have Minecraft version 1.20.4 installed.</span></li>
+                <li><b data-lang="step2-title">Step 2:</b> <span data-lang="step2-description">Launch the game under the nickname you specified.</span></li>
+                <li><b data-lang="step3-title">Step 3:</b> <span data-lang="step3-description">In the "Multiplayer" menu, select "Add Server" and enter the address </span><button id="copyButton" class="btn waves-effect waves-light support-button" data-clipboard-text="plands.ru"><b>plands.ru</b></button></li>
+                <li><b data-lang="step4-title">Step 4:</b> <span data-lang="step4-description">Connect to the server and start your adventure in the world of Pioneer Lands!</span></li>
             </ul>
         </div>
         <div th:if="${status == 'failure'}">
-            <p>Ошибка: Ваш проверочный код недействителен или уже был использован.</p>
+            <p data-lang="error-message">Error: Your verification code is invalid or has already been used.</p>
         </div>
     </div>
-
 </div>
-
-
-
-<!-- Add footer if needed -->
 
 <!-- Footer -->
 <footer class="page-footer grey darken-4 z-depth-4">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Другое</h5>
-                <p class="grey-text text-lighten-4">Переходите в наши соцсети и играйте вместе!</p>
+                <h5 class="white-text" data-lang="footer-other">Other</h5>
+                <p class="grey-text text-lighten-4" data-lang="footer-description">Join our social networks and play together!</p>
             </div>
             <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Наши соцсети</h5>
+                <h5 class="white-text" data-lang="footer-socials">Our Social Networks</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="https://discord.gg/xYQQ6r43T9">Discord</a></li>
                     <li><a class="grey-text text-lighten-3" href="https://t.me/+1Zx_IhHKHrFlODdi">Telegram</a></li>
@@ -147,7 +128,6 @@
     </div>
     <div class="footer-copyright grey darken-4 z-depth-4">
         <div class="container">
-            <!-- Please give credit, where credit is due. Leave this here... -->
             Created with care, by Plands Team
             <a class="grey-text text-lighten-4 right" href="#!">©Pioneer Lands 2024</a>
         </div>
@@ -155,32 +135,100 @@
 </footer>
 <!-- /Footer -->
 
-<!-- Existing scripts and links -->
 <script>
     $(document).ready(function() {
+        var translations = {
+            en: {
+                "about": "About",
+                "staff": "Staff",
+                "patron": "Patron",
+                "contact": "Contact",
+                "whitelist-title": "Add Your Nickname to the Whitelist",
+                "whitelist-description": "Enter your Minecraft nickname and verification code to add yourself to the whitelist on our server.",
+                "nickname-label": "Minecraft Nickname",
+                "code-label": "Verification Code",
+                "email-label": "Your Email",
+                "submit-button": "Start your adventure!",
+                "success-title": "Congratulations!",
+                "success-message": "Your access to the Pioneer Lands server is confirmed.",
+                "step1-title": "Step 1:",
+                "step1-description": "Make sure you have Minecraft version 1.20.4 installed.",
+                "step2-title": "Step 2:",
+                "step2-description": "Launch the game under the nickname you specified.",
+                "step3-title": "Step 3:",
+                "step3-description": "In the \"Multiplayer\" menu, select \"Add Server\" and enter the address ",
+                "step4-title": "Step 4:",
+                "step4-description": "Connect to the server and start your adventure in the world of Pioneer Lands!",
+                "error-message": "Error: Your verification code is invalid or has already been used.",
+                "footer-other": "Other",
+                "footer-description": "Join our social networks and play together!",
+                "footer-socials": "Our Social Networks"
+            },
+            ru: {
+                "about": "О нас",
+                "staff": "Персонал",
+                "patron": "Покровитель",
+                "contact": "Контакты",
+                "whitelist-title": "Добавьте свой никнейм в Whitelist",
+                "whitelist-description": "Введите ваш никнейм в Minecraft и проверочный код, чтобы добавить себя в Whitelist на нашем сервере.",
+                "nickname-label": "Никнейм в Minecraft",
+                "code-label": "Проверочный код",
+                "email-label": "Ваш Email",
+                "submit-button": "Начать путешествие!",
+                "success-title": "Поздравляем!",
+                "success-message": "Ваш доступ к серверу Pioneer Lands подтверждён.",
+                "step1-title": "Шаг 1:",
+                "step1-description": "Убедитесь, что у вас установлена версия Minecraft 1.20.4.",
+                "step2-title": "Шаг 2:",
+                "step2-description": "Запустите игру под тем никнеймом, который вы указали.",
+                "step3-title": "Шаг 3:",
+                "step3-description": "В меню \"Многопользовательская игра\" выберите \"Добавить сервер\" и введите адрес ",
+                "step4-title": "Шаг 4:",
+                "step4-description": "Подключитесь к серверу и начните своё приключение в мире Pioneer Lands!",
+                "error-message": "Ошибка: Ваш проверочный код недействителен или уже был использован.",
+                "footer-other": "Другое",
+                "footer-description": "Переходите в наши соцсети и играйте вместе!",
+                "footer-socials": "Наши соцсети"
+            }
+        };
+
+        function setLanguage(lang) {
+            $("[data-lang]").each(function() {
+                var key = $(this).data("lang");
+                $(this).text(translations[lang][key]);
+            });
+        }
+
+        var userLang = navigator.language || navigator.userLanguage;
+        if (userLang.startsWith("ru")) {
+            setLanguage("ru");
+        } else {
+            setLanguage("en");
+        }
+
         $("#email").on("blur", function() {
             let email = $(this).val();
             let emailError = $("#email-error");
 
             if (!validateEmail(email)) {
-                emailError.text("Некорректный формат email.");
+                emailError.text("Invalid email format.");
                 return;
             }
 
             // Check if email exists
             $.ajax({
-                url: '/check-email', // Update this URL according to your controller endpoint
+                url: '/check-email',
                 type: 'GET',
                 data: { email: email },
                 success: function(response) {
                     if (response.exists) {
-                        emailError.text("Этот email уже используется.");
+                        emailError.text("This email is already in use.");
                     } else {
                         emailError.text("");
                     }
                 },
                 error: function() {
-                    emailError.text("Ошибка при проверке email.");
+                    emailError.text("Error checking email.");
                 }
             });
         });
@@ -191,18 +239,18 @@
 
             // Check if nickname exists
             $.ajax({
-                url: '/check-nickname', // Update this URL according to your controller endpoint
+                url: '/check-nickname',
                 type: 'GET',
                 data: { nickname: nickname },
                 success: function(response) {
                     if (response.exists) {
-                        nicknameError.text("Этот никнейм уже используется.");
+                        nicknameError.text("This nickname is already in use.");
                     } else {
                         nicknameError.text("");
                     }
                 },
                 error: function() {
-                    nicknameError.text("Ошибка при проверке никнейма.");
+                    nicknameError.text("Error checking nickname.");
                 }
             });
         });
@@ -212,7 +260,7 @@
             let nicknameError = $("#nickname-error").text();
             if (emailError || nicknameError) {
                 e.preventDefault();
-                alert("Пожалуйста, исправьте ошибки перед отправкой формы.");
+                alert("Please correct the errors before submitting the form.");
             }
         });
     });
@@ -222,9 +270,6 @@
         return re.test(email);
     }
 </script>
-
-
-
 
 </body>
 </html>
