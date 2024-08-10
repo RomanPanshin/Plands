@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+  <!-- Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+
+  <!-- Font Awesome -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <!-- AOS -->
+  <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+  <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Theme's Stylesheet -->
+  <link rel="stylesheet" th:href="@{/css/theme.css}" />
+
+  <!-- Theme JS -->
+  <script th:src="@{/js/smoothscroll.js}"></script>
+  <script th:src="@{/js/clipboardHandler.js}"></script>
+  <script  th:src="@{/js/nav.js}"></script>
+
+  <!-- Site Title -->
+  <title>Pioneer Lands</title>
+
+  <!-- Meta Info -->
+  <meta charset="UTF-8">
+  <meta name="author" content="PLands Team">
+  <meta name="description" content="Сервер, где нельзя оказаться случайно">
+  <meta name="keywords" content="Minecraft, Server, PLands, Multiplayer">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<!-- Nav -->
+<div class="navbar-fixed">
+  <nav class="z-depth-0 grey darken-4">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Plands</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/#about" class="nav-link" data-lang="about">About</a></li>
+        <li><a href="/#staff" class="nav-link" data-lang="staff">Staff</a></li>
+        <li><a href="/#vip" class="nav-link" data-lang="patron">Patron</a></li>
+        <li><a href="/#contact" class="nav-link" data-lang="contact">Contact</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/#about" class="nav-link" data-lang="about">About</a></li>
+        <li><a href="/#staff" class="nav-link" data-lang="staff">Staff</a></li>
+        <li><a href="/#vip" class="nav-link" data-lang="patron">Patron</a></li>
+        <li><a href="/#contact" class="nav-link" data-lang="contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<!-- Support -->
+<div class="vip center-align" id="vip">
+  <div class="main">
+    <div class="row" data-aos="fade">
+      <div class="col s12">
+        <h4 id="support-header">Support Information</h4>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Исследователь -->
+      <div class="col s12 l4" data-aos="fade-right">
+        <div class="card-panel">
+          <div class="row">
+            <div class="col s12">
+              <h5 id="explorer-title">Explorer</h5>
+              <span id="explorer-price">200 RUB/month</span>
+              <br><br>
+              <table class="centered responsive-table striped">
+                <tbody>
+                <tr>
+                  <td id="explorer-benefit1">Special nickname color in chat</td>
+                </tr>
+                <tr>
+                  <td id="explorer-benefit2">White message color</td>
+                </tr>
+                <tr>
+                  <td id="explorer-benefit3">Access to unique emojis</td>
+                </tr>
+                <tr>
+                  <td id="explorer-benefit4">Basic cosmetic upgrades</td>
+                </tr>
+                <tr>
+                  <td id="explorer-benefit5">Listed as a partner</td>
+                </tr>
+                <tr>
+                  <td id="explorer-benefit6">Special Discord role</td>
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              <a id="explorer-support" class="waves-effect waves-light btn-large grey darken-4" href="https://yoomoney.ru/to/410013560878456">Support</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Путешественник -->
+      <div class="col s12 l4" data-aos="fade">
+        <div class="card-panel">
+          <div class="row">
+            <div class="col s12">
+              <h5 id="traveler-title">Traveler</h5>
+              <span id="traveler-price">500 RUB/month</span>
+              <br><br>
+              <table class="centered responsive-table striped">
+                <tbody>
+                <tr>
+                  <td id="traveler-benefit1">All "Explorer" benefits</td>
+                </tr>
+                <tr>
+                  <td id="traveler-benefit2">Choice of three nickname colors</td>
+                </tr>
+                <tr>
+                  <td id="traveler-benefit3">Additional emojis</td>
+                </tr>
+                <tr>
+                  <td id="traveler-benefit4">Extended cosmetic upgrades</td>
+                </tr>
+                <tr>
+                  <td id="traveler-benefit5">Unique greeting</td>
+                </tr>
+                <tr>
+                  <td id="traveler-benefit6">Listed as a partner</td>
+                </tr>
+                <tr>
+                  <td id="traveler-benefit7">Special Discord role</td>
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              <a id="traveler-support" class="waves-effect waves-light btn-large grey darken-4" href="https://yoomoney.ru/to/410013560878456">Support</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Авантюрист -->
+      <div class="col s12 l4" data-aos="fade-left">
+        <div class="card-panel">
+          <div class="row">
+            <div class="col s12">
+              <h5 id="adventurer-title">Adventurer</h5>
+              <span id="adventurer-price">1000 RUB/month</span>
+              <br><br>
+              <table class="centered responsive-table striped">
+                <tbody>
+                <tr>
+                  <td id="adventurer-benefit1">All "Traveler" benefits</td>
+                </tr>
+                <tr>
+                  <td id="adventurer-benefit2">Choice of seven nickname colors</td>
+                </tr>
+                <tr>
+                  <td id="adventurer-benefit3">Custom emojis</td>
+                </tr>
+                <tr>
+                  <td id="adventurer-benefit4">Full cosmetic upgrades</td>
+                </tr>
+                <tr>
+                  <td id="adventurer-benefit5">Disable join/leave notifications</td>
+                </tr>
+                <tr>
+                  <td id="adventurer-benefit6">Listed as a business partner</td>
+                </tr>
+                <tr>
+                  <td id="adventurer-benefit7">Access to special chat</td>
+                </tr>
+                <tr>
+                  <td id="adventurer-benefit8">Gift from the team</td>
+                </tr>
+                <tr>
+                  <td id="adventurer-benefit9">Special Discord role</td>
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              <a id="adventurer-support" class="waves-effect waves-light btn-large grey darken-4" href="https://yoomoney.ru/to/410013560878456">Support</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer grey darken-4 z-depth-4">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text" id="footer-more">More</h5>
+        <p id="footer-description" class="grey-text text-lighten-4">Visit our social networks and play together!</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text" id="footer-social">Our Social Networks</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://discord.gg/xYQQ6r43T9">Discord</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://t.me/+1Zx_IhHKHrFlODdi">Telegram</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://vk.com/plands">VK</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright grey darken-4 z-depth-4">
+    <div class="container">
+      <span id="footer-created">Created with care, by Plands Team</span>
+      <a class="grey-text text-lighten-4 right" href="#!">©Pioneer Lands 2024</a>
+    </div>
+  </div>
+</footer>
+<!-- /Footer -->
+
+<!-- AOS INIT -->
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-sine',
+    disable: 'mobile',
+  });
+</script>
+
+<!-- Mobile Nav INIT -->
+<script>
+  $(".button-collapse").sideNav();
+</script>
+
+<!-- Language Detection Script -->
+<script>
+  $(document).ready(function(){
+    var userLang = navigator.language || navigator.userLanguage;
+    if (userLang.startsWith("ru")) {
+      // Russian
+      $("#support-header").text("Информация о Поддержке");
+      $("#explorer-title").text("Исследователь");
+      $("#explorer-price").text("200 рублей/месяц");
+      $("#explorer-benefit1").text("Особый цвет ника в чате");
+      $("#explorer-benefit2").text("Белый цвет сообщений");
+      $("#explorer-benefit3").text("Доступ к уникальным эмодзи");
+      $("#explorer-benefit4").text("Базовый набор косметических улучшений");
+      $("#explorer-benefit5").text("Участие в списке партнеров");
+      $("#explorer-benefit6").text("Особая роль в Discord");
+      $("#explorer-support").text("Поддержать");
+
+      $("#traveler-title").text("Путешественник");
+      $("#traveler-price").text("500 рублей/месяц");
+      $("#traveler-benefit1").text("Все преимущества 'Исследователя'");
+      $("#traveler-benefit2").text("Выбор из трех цветов ника");
+      $("#traveler-benefit3").text("Дополнительные эмодзи");
+      $("#traveler-benefit4").text("Расширенный набор косметических улучшений");
+      $("#traveler-benefit5").text("Уникальное приветствие");
+      $("#traveler-benefit6").text("Участие в списке партнеров");
+      $("#traveler-benefit7").text("Особая роль в Discord");
+      $("#traveler-support").text("Поддержать");
+
+      $("#adventurer-title").text("Авантюрист");
+      $("#adventurer-price").text("1000 рублей/месяц");
+      $("#adventurer-benefit1").text("Все преимущества 'Путешественника'");
+      $("#adventurer-benefit2").text("Выбор из семи цветов ника");
+      $("#adventurer-benefit3").text("Возможность добавлять индивидуальные эмодзи");
+      $("#adventurer-benefit4").text("Полный доступ к косметическим улучшениям");
+      $("#adventurer-benefit5").text("Отключение уведомлений о входе/выходе");
+      $("#adventurer-benefit6").text("Участие в списке бизнес-партнеров");
+      $("#adventurer-benefit7").text("Доступ к специальному чату");
+      $("#adventurer-benefit8").text("Подарок от команды");
+      $("#adventurer-benefit9").text("Особая роль в Discord");
+      $("#adventurer-support").text("Поддержать");
+
+      $("#footer-more").text("Другое");
+      $("#footer-description").text("Переходите в наши соцсети и играйте вместе!");
+      $("#footer-social").text("Наши соцсети");
+      $("#footer-created").text("Создано с заботой, командой Plands");
+    }
+  });
+</script>
+
+</body>
+</html>

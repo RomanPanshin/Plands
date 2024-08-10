@@ -16,6 +16,12 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/donate")
+    public String donate(Model model) {
+//        model.addAttribute("contents", contentService.getAllContent());
+        return "donate";
+    }
+
     @GetMapping("/audit")
     public String audit(Model model) {
         // You can add attributes to the model if needed
