@@ -1,36 +1,47 @@
 package com.plands.site.model;
 
 import jakarta.persistence.*;
+
 import java.util.UUID;
+
 
 @Entity
 public class AuditCode {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @Column(columnDefinition = "CHAR(36)")
+    private String id;
 
-    private UUID code;
+    @Column(columnDefinition = "CHAR(36)")
+    private String code;
+
     private boolean used;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    // getters and setters
-    public UUID getId() {
+    @PrePersist
+    public void prePersist() {
+        if (this.id == null) {
+            this.id = UUID.randomUUID().toString();
+        }
+    }
+
+    // Getters and setters
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public UUID getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(UUID code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -53,10 +64,11 @@ public class AuditCode {
     @Override
     public String toString() {
         return "AuditCode{" +
-                "id=" + id +
-                ", code=" + code +
+                "id='" + id + '\'' +
+                ", code='" + code + '\'' +
                 ", used=" + used +
                 ", user=" + user +
                 '}';
     }
 }
+

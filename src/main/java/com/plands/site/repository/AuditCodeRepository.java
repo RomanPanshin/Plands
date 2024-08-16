@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface AuditCodeRepository extends JpaRepository<AuditCode, UUID> {
-    AuditCode findByCode(UUID code);
+public interface AuditCodeRepository extends JpaRepository<AuditCode, String> {
+    AuditCode findByCode(String code);
 }

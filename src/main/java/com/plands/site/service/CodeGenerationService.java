@@ -26,7 +26,7 @@ public class CodeGenerationService {
 
             do {
                 newCode = UUID.randomUUID();
-                if (auditCodeRepository.findByCode(newCode) == null) {
+                if (auditCodeRepository.findByCode(newCode.toString()) == null) {
                     isUnique = true;
                 }
                 attempts++;
@@ -43,7 +43,7 @@ public class CodeGenerationService {
 
     public AuditCode createAuditCode(UUID newCode) {
         AuditCode auditCode = new AuditCode();
-        auditCode.setCode(newCode);
+        auditCode.setCode(newCode.toString());
         auditCode.setUsed(false);
         auditCodeRepository.save(auditCode);
         return auditCode;

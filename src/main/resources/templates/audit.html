@@ -72,21 +72,43 @@
         <h2 data-lang="whitelist-title">Add Your Nickname to the Whitelist</h2>
         <p data-lang="whitelist-description">Enter your Minecraft nickname and verification code to add yourself to the whitelist on our server.</p>
         <form th:action="@{/whitelist/add}" method="post">
+            <!-- Nickname Field -->
             <div class="row">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="nickname" type="text" name="playerName" required>
-                        <label for="nickname" data-lang="nickname-label">Minecraft Nickname</label>
-                        <span id="nickname-error" class="helper-text red-text"></span>
-                    </div>
+                <div class="input-field col s12">
+                    <input id="nickname" type="text" name="playerName" required>
+                    <label for="nickname" data-lang="nickname-label">Minecraft Nickname</label>
+                    <span id="nickname-error" class="helper-text red-text"></span>
                 </div>
             </div>
+
+            <!-- Password Field -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" type="password" name="password" required minlength="8">
+                    <label for="password" data-lang="password-label">Password</label>
+                    <span id="password-error" class="helper-text red-text"></span>
+                    <span class="helper-text" data-lang="password-info">Remember this password, you'll need it to log in to the game.</span>
+                </div>
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="confirm-password" type="password" required minlength="8">
+                    <label for="confirm-password" data-lang="confirm-password-label">Confirm Password</label>
+                    <span id="confirm-password-error" class="helper-text red-text"></span>
+                </div>
+            </div>
+
+            <!-- Verification Code Field -->
             <div class="row">
                 <div class="input-field col s12">
                     <input id="code" type="text" name="code" required>
                     <label for="code" data-lang="code-label">Verification Code</label>
                 </div>
             </div>
+
+            <!-- Email Field -->
             <div class="row">
                 <div class="input-field col s12">
                     <input id="email" type="email" name="email" required>
@@ -94,6 +116,7 @@
                     <span id="email-error" class="helper-text red-text"></span>
                 </div>
             </div>
+
             <button class="btn waves-effect waves-light support-button" type="submit" data-lang="submit-button">Start your adventure!</button>
         </form>
         <div th:if="${status == 'success'}">
@@ -141,6 +164,44 @@
 
 <script>
     $(document).ready(function() {
+
+
+    // Изначально скрываем сообщение
+    $("#password-info").hide();
+
+    // Отслеживаем начало ввода в поле пароля
+    $("#password").on("input", function() {
+        let password = $(this).val();
+        let nickname = $("#nickname").val();
+        let passwordError = $("#password-error");
+
+        // Показать сообщение о запоминании пароля, когда начинается ввод
+        if (!$("#password-info").is(":visible")) {
+            $("#password-info").show();
+        }
+
+        if (password.length < 8) {
+            passwordError.text("Password must be at least 8 characters long.");
+        } else if (password === nickname) {
+            passwordError.text("Password should not match the nickname.");
+        } else {
+            passwordError.text("");
+        }
+    });
+
+    $("#confirm-password").on("input", function() {
+        let confirmPassword = $(this).val();
+        let password = $("#password").val();
+        let confirmPasswordError = $("#confirm-password-error");
+
+        if (confirmPassword && password !== confirmPassword) {
+            confirmPasswordError.text("Passwords do not match.");
+        } else {
+            confirmPasswordError.text("");
+        }
+    });
+});
+
         var translations = {
             en: {
                 "about": "About",
@@ -152,6 +213,9 @@
                 "nickname-label": "Minecraft Nickname",
                 "code-label": "Verification Code",
                 "email-label": "Your Email",
+                "password-label": "Password",
+                "password-info": "Remember this password, you'll need it to log in to the game.",
+                "confirm-password-label": "Confirm Password",
                 "submit-button": "Start your adventure!",
                 "success-title": "Congratulations!",
                 "success-message": "Your access to the Pioneer Lands server is confirmed.",
@@ -171,15 +235,18 @@
                 "russian": "Русский"
             },
             ru: {
-                "about": "О нас",
-                "staff": "Персонал",
-                "patron": "Покровитель",
-                "contact": "Контакты",
+                "about": "About",
+                "staff": "Staff",
+                "patron": "Patron",
+                "contact": "Contact",
                 "whitelist-title": "Добавьте свой никнейм в Whitelist",
                 "whitelist-description": "Введите ваш никнейм в Minecraft и проверочный код, чтобы добавить себя в Whitelist на нашем сервере.",
                 "nickname-label": "Никнейм в Minecraft",
                 "code-label": "Проверочный код",
                 "email-label": "Ваш Email",
+                "password-label": "Пароль",
+                "password-info": "Запомните этот пароль, он понадобится для входа в игру.",
+                "confirm-password-label": "Подтвердите Пароль",
                 "submit-button": "Начать путешествие!",
                 "success-title": "Поздравляем!",
                 "success-message": "Ваш доступ к серверу Pioneer Lands подтверждён.",
@@ -267,7 +334,10 @@
         $("form").on("submit", function(e) {
             let emailError = $("#email-error").text();
             let nicknameError = $("#nickname-error").text();
-            if (emailError || nicknameError) {
+            let passwordError = $("#password-error").text();
+            let confirmPasswordError = $("#confirm-password-error").text();
+
+            if (emailError || nicknameError || passwordError || confirmPasswordError) {
                 e.preventDefault();
                 alert("Please correct the errors before submitting the form.");
             }

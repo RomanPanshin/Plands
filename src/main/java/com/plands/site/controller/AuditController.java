@@ -3,9 +3,9 @@ package com.plands.site.controller;
 import com.plands.site.model.AuditCode;
 import com.plands.site.model.User;
 import com.plands.site.repository.AuditCodeRepository;
-import com.plands.site.repository.UserRepository;
 import com.plands.site.service.CodeGenerationService;
 import com.plands.site.service.RconService;
+import com.plands.site.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -28,17 +28,17 @@ public class AuditController {
     private AuditCodeRepository auditCodeRepository;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private CodeGenerationService codeGenerationService;
 
+    @Autowired
+    private UserService userService;  // Use UserService
+
     @PostMapping("/add")
-    public String addWhitelist(@RequestParam String playerName, @RequestParam String code, @RequestParam String email, Model model) {
+    public String addWhitelist(@RequestParam String playerName, @RequestParam String code, @RequestParam String email,
+                               @RequestParam String password, Model model) {
         AuditCode auditCode = null;
         try {
-            UUID codeUUID = UUID.fromString(code);
-            auditCode = auditCodeRepository.findByCode(codeUUID);
+            auditCode = auditCodeRepository.findByCode(code);
         } catch (IllegalArgumentException e) {
             model.addAttribute("status", "failure");
             return "audit";
@@ -49,15 +49,16 @@ public class AuditController {
             return "audit";
         }
 
-        User user = userRepository.findByEmail(email);
+        User user = userService.findByEmail(email);
         if (user == null) {
-            user = new User();
-            user.setEmail(email);
-            user.setNickname(playerName);
-            user = userRepository.save(user);
+            // Register the user using UserService
+            user = userService.registerUser(email, playerName, password);
         }
 
+        // Add the user to the whitelist
         rconService.addWhitelist(playerName);
+
+        // Mark the audit code as used and link it to the user
         auditCode.setUsed(true);
         auditCode.setUser(user);
         auditCodeRepository.save(auditCode);
