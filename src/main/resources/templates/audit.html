@@ -1,6 +1,15 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFEM9TK5GV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-NFEM9TK5GV');
+    </script>
     <!-- Olympia 2.0, created with love by Sid Engel. -->
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -27,6 +36,197 @@
     <script th:src="@{/js/smoothscroll.js}"></script>
     <script th:src="@{/js/clipboardHandler.js}"></script>
     <script th:src="@{/js/nav.js}"></script>
+
+    <script>
+        $(document).ready(function () {
+    var translations = {
+            en: {
+                "about": "About",
+                "staff": "Staff",
+                "patron": "Patron",
+                "contact": "Contact",
+                "whitelist-title": "Add Your Nickname to the Whitelist",
+                "whitelist-description": "Enter your Minecraft nickname and verification code to add yourself to the whitelist on our server.",
+                "nickname-label": "Minecraft Nickname",
+                "password-label": "Password",
+                "confirm-password-label": "Confirm Password",
+                "code-label": "Verification Code",
+                "email-label": "Your Email",
+                "submit-button": "Start your adventure!",
+                "success-title": "Congratulations!",
+                "success-message": "Your access to the Pioneer Lands server is confirmed.",
+                "step1-title": "Step 1:",
+                "step1-description": "Make sure you have Minecraft version 1.20.4 installed.",
+                "step2-title": "Step 2:",
+                "step2-description": "Launch the game under the nickname you specified.",
+                "step3-title": "Step 3:",
+                "step3-description": "In the \"Multiplayer\" menu, select \"Add Server\" and enter the address ",
+                "step4-title": "Step 4:",
+                "step4-description": "Connect to the server and start your adventure in the world of Pioneer Lands!",
+                "error-message": "Error: Your verification code is invalid or has already been used.",
+                "password-mismatch": "Passwords do not match.",
+                "password-invalid": "Password must be at least 8 characters long, contain both letters and numbers, and only include Latin symbols.",
+                "password-same-nickname": "Password cannot be the same as the nickname.",
+                "email-error": "Invalid email format.",
+                "nickname-error": "This nickname is already in use.",
+                "password-info": "Remember this password, you'll need it to log in to the game.",
+                "footer-other": "Other",
+                "footer-description": "Join our social networks and play together!",
+                "footer-socials": "Our Social Networks",
+                "english": "English",
+                "russian": "Русский"
+            },
+            ru: {
+                "about": "О нас",
+                "staff": "Персонал",
+                "patron": "Покровитель",
+                "contact": "Контакты",
+                "whitelist-title": "Добавьте свой никнейм в Whitelist",
+                "whitelist-description": "Введите ваш никнейм в Minecraft и проверочный код, чтобы добавить себя в Whitelist на нашем сервере.",
+                "nickname-label": "Никнейм в Minecraft",
+                "password-label": "Пароль",
+                "confirm-password-label": "Подтвердите пароль",
+                "code-label": "Проверочный код",
+                "email-label": "Ваш Email",
+                "submit-button": "Начать путешествие!",
+                "success-title": "Поздравляем!",
+                "success-message": "Ваш доступ к серверу Pioneer Lands подтверждён.",
+                "step1-title": "Шаг 1:",
+                "step1-description": "Убедитесь, что у вас установлена версия Minecraft 1.20.4.",
+                "step2-title": "Шаг 2:",
+                "step2-description": "Запустите игру под тем никнеймом, который вы указали.",
+                "step3-title": "Шаг 3:",
+                "step3-description": "В меню \"Многопользовательская игра\" выберите \"Добавить сервер\" и введите адрес ",
+                "step4-title": "Шаг 4:",
+                "step4-description": "Подключитесь к серверу и начните своё приключение в мире Pioneer Lands!",
+                "error-message": "Ошибка: Ваш проверочный код недействителен или уже был использован.",
+                "password-mismatch": "Пароли не совпадают.",
+                "password-invalid": "Пароль должен быть не менее 8 символов, содержать буквы и цифры, и включать только латинские символы.",
+                "password-same-nickname": "Пароль не может совпадать с никнеймом.",
+                "email-error": "Неправильный формат email.",
+                "nickname-error": "Этот никнейм уже используется.",
+                "password-info": "Запомните этот пароль, он вам понадобится для входа в игру.",
+                "footer-other": "Другое",
+                "footer-description": "Переходите в наши соцсети и играйте вместе!",
+                "footer-socials": "Наши соцсети",
+                "english": "English",
+                "russian": "Русский"
+            }
+        };
+
+            function setLanguage(lang) {
+                $("[data-lang]").each(function () {
+                    var key = $(this).data("lang");
+                    $(this).text(translations[lang][key]);
+                });
+            }
+
+            function getQueryParameter(name) {
+                var urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+
+            var lang = getQueryParameter("lang") || (navigator.language.startsWith("ru") ? "ru" : "en");
+            setLanguage(lang);
+
+            $("#password, #confirm-password, #nickname").on("blur", function () {
+                validatePassword();
+            });
+
+            function validatePassword() {
+                let password = $("#password").val();
+                let confirmPassword = $("#confirm-password").val();
+                let nickname = $("#nickname").val();
+                let passwordError = $("#password-error");
+                let confirmPasswordError = $("#confirm-password-error");
+
+                let passwordValid = /^[a-zA-Z0-9]{8,}$/.test(password);
+                let passwordMismatch = password !== confirmPassword;
+                let passwordSameAsNickname = password === nickname;
+
+                if (!passwordValid) {
+                    passwordError.text(translations[lang]['password-invalid']);
+                } else if (passwordSameAsNickname) {
+                    passwordError.text(translations[lang]['password-same-nickname']);
+                } else {
+                    passwordError.text("");
+                }
+
+                if (passwordMismatch) {
+                    confirmPasswordError.text(translations[lang]['password-mismatch']);
+                } else {
+                    confirmPasswordError.text("");
+                }
+            }
+
+            $("#email").on("blur", function () {
+                let email = $(this).val();
+                let emailError = $("#email-error");
+
+                if (!validateEmail(email)) {
+                    emailError.text(translations[lang]['email-error']);
+                    return;
+                }
+
+                // Check if email exists
+                $.ajax({
+                    url: '/check-email',
+                    type: 'GET',
+                    data: { email: email },
+                    success: function (response) {
+                        if (response.exists) {
+                            emailError.text(translations[lang]['email-error']);
+                        } else {
+                            emailError.text("");
+                        }
+                    },
+                    error: function () {
+                        emailError.text("Error checking email.");
+                    }
+                });
+            });
+
+            $("#nickname").on("blur", function () {
+                let nickname = $(this).val();
+                let nicknameError = $("#nickname-error");
+
+                // Check if nickname exists
+                $.ajax({
+                    url: '/check-nickname',
+                    type: 'GET',
+                    data: { nickname: nickname },
+                    success: function (response) {
+                        if (response.exists) {
+                            nicknameError.text(translations[lang]['nickname-error']);
+                        } else {
+                            nicknameError.text("");
+                        }
+                    },
+                    error: function () {
+                        nicknameError.text("Error checking nickname.");
+                    }
+                });
+            });
+
+            $("form").on("submit", function (e) {
+                let emailError = $("#email-error").text();
+                let nicknameError = $("#nickname-error").text();
+                let passwordError = $("#password-error").text();
+                let confirmPasswordError = $("#confirm-password-error").text();
+
+                if (emailError || nicknameError || passwordError || confirmPasswordError) {
+                    e.preventDefault();
+                    alert("Please correct the errors before submitting the form.");
+                }
+            });
+
+            function validateEmail(email) {
+                let re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                return re.test(email);
+            }
+        });
+    </script>
+
 
     <!-- Site Title -->
     <title>Pioneer Lands</title>
@@ -162,193 +362,7 @@
 </footer>
 <!-- /Footer -->
 
-<script>
-    $(document).ready(function() {
 
-
-    // Изначально скрываем сообщение
-    $("#password-info").hide();
-
-    // Отслеживаем начало ввода в поле пароля
-    $("#password").on("input", function() {
-        let password = $(this).val();
-        let nickname = $("#nickname").val();
-        let passwordError = $("#password-error");
-
-        // Показать сообщение о запоминании пароля, когда начинается ввод
-        if (!$("#password-info").is(":visible")) {
-            $("#password-info").show();
-        }
-
-        if (password.length < 8) {
-            passwordError.text("Password must be at least 8 characters long.");
-        } else if (password === nickname) {
-            passwordError.text("Password should not match the nickname.");
-        } else {
-            passwordError.text("");
-        }
-    });
-
-    $("#confirm-password").on("input", function() {
-        let confirmPassword = $(this).val();
-        let password = $("#password").val();
-        let confirmPasswordError = $("#confirm-password-error");
-
-        if (confirmPassword && password !== confirmPassword) {
-            confirmPasswordError.text("Passwords do not match.");
-        } else {
-            confirmPasswordError.text("");
-        }
-    });
-});
-
-        var translations = {
-            en: {
-                "about": "About",
-                "staff": "Staff",
-                "patron": "Patron",
-                "contact": "Contact",
-                "whitelist-title": "Add Your Nickname to the Whitelist",
-                "whitelist-description": "Enter your Minecraft nickname and verification code to add yourself to the whitelist on our server.",
-                "nickname-label": "Minecraft Nickname",
-                "code-label": "Verification Code",
-                "email-label": "Your Email",
-                "password-label": "Password",
-                "password-info": "Remember this password, you'll need it to log in to the game.",
-                "confirm-password-label": "Confirm Password",
-                "submit-button": "Start your adventure!",
-                "success-title": "Congratulations!",
-                "success-message": "Your access to the Pioneer Lands server is confirmed.",
-                "step1-title": "Step 1:",
-                "step1-description": "Make sure you have Minecraft version 1.20.4 installed.",
-                "step2-title": "Step 2:",
-                "step2-description": "Launch the game under the nickname you specified.",
-                "step3-title": "Step 3:",
-                "step3-description": "In the \"Multiplayer\" menu, select \"Add Server\" and enter the address ",
-                "step4-title": "Step 4:",
-                "step4-description": "Connect to the server and start your adventure in the world of Pioneer Lands!",
-                "error-message": "Error: Your verification code is invalid or has already been used.",
-                "footer-other": "Other",
-                "footer-description": "Join our social networks and play together!",
-                "footer-socials": "Our Social Networks",
-                "english": "English",
-                "russian": "Русский"
-            },
-            ru: {
-                "about": "About",
-                "staff": "Staff",
-                "patron": "Patron",
-                "contact": "Contact",
-                "whitelist-title": "Добавьте свой никнейм в Whitelist",
-                "whitelist-description": "Введите ваш никнейм в Minecraft и проверочный код, чтобы добавить себя в Whitelist на нашем сервере.",
-                "nickname-label": "Никнейм в Minecraft",
-                "code-label": "Проверочный код",
-                "email-label": "Ваш Email",
-                "password-label": "Пароль",
-                "password-info": "Запомните этот пароль, он понадобится для входа в игру.",
-                "confirm-password-label": "Подтвердите Пароль",
-                "submit-button": "Начать путешествие!",
-                "success-title": "Поздравляем!",
-                "success-message": "Ваш доступ к серверу Pioneer Lands подтверждён.",
-                "step1-title": "Шаг 1:",
-                "step1-description": "Убедитесь, что у вас установлена версия Minecraft 1.20.4.",
-                "step2-title": "Шаг 2:",
-                "step2-description": "Запустите игру под тем никнеймом, который вы указали.",
-                "step3-title": "Шаг 3:",
-                "step3-description": "В меню \"Многопользовательская игра\" выберите \"Добавить сервер\" и введите адрес ",
-                "step4-title": "Шаг 4:",
-                "step4-description": "Подключитесь к серверу и начните своё приключение в мире Pioneer Lands!",
-                "error-message": "Ошибка: Ваш проверочный код недействителен или уже был использован.",
-                "footer-other": "Другое",
-                "footer-description": "Переходите в наши соцсети и играйте вместе!",
-                "footer-socials": "Наши соцсети",
-                "english": "English",
-                "russian": "Русский"
-            }
-        };
-
-        function setLanguage(lang) {
-            $("[data-lang]").each(function() {
-                var key = $(this).data("lang");
-                $(this).text(translations[lang][key]);
-            });
-        }
-
-        function getQueryParameter(name) {
-            var urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name);
-        }
-
-        var lang = getQueryParameter("lang") || (navigator.language.startsWith("ru") ? "ru" : "en");
-        setLanguage(lang);
-
-        $("#email").on("blur", function() {
-            let email = $(this).val();
-            let emailError = $("#email-error");
-
-            if (!validateEmail(email)) {
-                emailError.text("Invalid email format.");
-                return;
-            }
-
-            // Check if email exists
-            $.ajax({
-                url: '/check-email',
-                type: 'GET',
-                data: { email: email },
-                success: function(response) {
-                    if (response.exists) {
-                        emailError.text("This email is already in use.");
-                    } else {
-                        emailError.text("");
-                    }
-                },
-                error: function() {
-                    emailError.text("Error checking email.");
-                }
-            });
-        });
-
-        $("#nickname").on("blur", function() {
-            let nickname = $(this).val();
-            let nicknameError = $("#nickname-error");
-
-            // Check if nickname exists
-            $.ajax({
-                url: '/check-nickname',
-                type: 'GET',
-                data: { nickname: nickname },
-                success: function(response) {
-                    if (response.exists) {
-                        nicknameError.text("This nickname is already in use.");
-                    } else {
-                        nicknameError.text("");
-                    }
-                },
-                error: function() {
-                    nicknameError.text("Error checking nickname.");
-                }
-            });
-        });
-
-        $("form").on("submit", function(e) {
-            let emailError = $("#email-error").text();
-            let nicknameError = $("#nickname-error").text();
-            let passwordError = $("#password-error").text();
-            let confirmPasswordError = $("#confirm-password-error").text();
-
-            if (emailError || nicknameError || passwordError || confirmPasswordError) {
-                e.preventDefault();
-                alert("Please correct the errors before submitting the form.");
-            }
-        });
-    });
-
-    function validateEmail(email) {
-        let re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        return re.test(email);
-    }
-</script>
 
 </body>
 </html>
